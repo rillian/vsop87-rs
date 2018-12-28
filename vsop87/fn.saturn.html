@@ -1,129 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `saturn` fn in crate `vsop87`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, saturn">
-
-    <title>vsop87::saturn - Rust</title>
-
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
-    
-
-    
-    
-</head>
-<body class="rustdoc">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        
-        <p class='location'><a href='index.html'>vsop87</a></p><script>window.sidebarCurrent = {name: 'saturn', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </nav>
-
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content fn">
-<h1 class='fqn'><span class='in-band'>Function <a href='index.html'>vsop87</a>::<wbr><a class='fn' href=''>saturn</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a id='src-2205' class='srclink' href='../src/vsop87/src/lib.rs.html#508-568' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn saturn(jde: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a></pre><div class='docblock'><p>Calculates VSOP87 solution for Saturn</p>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `saturn` fn in crate `vsop87`."><meta name="keywords" content="rust, rustlang, rust-lang, saturn"><title>vsop87::saturn - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../dark.css"><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script src="../storage.js"></script></head><body class="rustdoc fn"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><div class="sidebar-elems"><p class='location'><a href='index.html'>vsop87</a></p><script>window.sidebarCurrent = {name: 'saturn', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/vsop87/lib.rs.html#1095-1158' title='goto source code'>[src]</a></span><span class='in-band'>Function <a href='index.html'>vsop87</a>::<wbr><a class="fn" href=''>saturn</a></span></h1><pre class='rust fn'>pub fn saturn(jde: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <a class="struct" href="../vsop87/struct.VSOP87Elements.html" title="struct vsop87::VSOP87Elements">VSOP87Elements</a></pre><div class='docblock'><p>Calculates VSOP87 solution for Saturn.</p>
 <p>This function calculates the VSOP87 solution (heliocentric ecliptic orbital elements for the
-equinox J2000.0) for the planet Saturn. The parameter needed is the Julian Day Efemeris (<em>JDE</em>)
-for the given date. It returns, in order, a tuple with the values <em>a</em>, <em>l</em>, <em>k</em>, <em>h</em>, <em>q</em>, <em>p</em>
-of the VSOP87 solution.</p>
+equinox J2000.0) for the planet Saturn. The parameter needed is the Julian Day (<em>JD</em>) for the
+given date. It returns the <code>VSOP87Elements</code> of the VSOP87 solution.</p>
+<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+<p>Given a date in <a href="http://aa.usno.navy.mil/data/docs/JulianDate.php"><em>JD</em></a>, we can get the
+orbit of the planet Saturn. In this case, we calculate the orbit of Saturn in December 29th,</p>
+<ol start="1599">
+<li></li>
+</ol>
 
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
-<pre class='rust rust-example-rendered'>
-<span class='kw'>let</span> (<span class='ident'>a</span>, <span class='ident'>l</span>, <span class='ident'>k</span>, <span class='ident'>h</span>, <span class='ident'>q</span>, <span class='ident'>p</span>) <span class='op'>=</span> <span class='ident'>vsop87</span>::<span class='ident'>saturn</span>(<span class='number'>2305445.0</span>);
+<pre class="rust rust-example-rendered">
+<span class="kw">let</span> <span class="ident">vsop87_elts</span> <span class="op">=</span> <span class="ident">vsop87</span>::<span class="ident">saturn</span>(<span class="number">2305445.0</span>);
 
-<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>a</span> <span class='op'>&gt;</span> <span class='number'>9.5727100002</span> <span class='op'>&amp;&amp;</span> <span class='ident'>a</span> <span class='op'>&lt;</span> <span class='number'>9.5727100004</span>);
-<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>l</span> <span class='op'>&gt;</span> <span class='number'>3.5107821038</span> <span class='op'>&amp;&amp;</span> <span class='ident'>l</span> <span class='op'>&lt;</span> <span class='number'>3.5107821040</span>);
-<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>k</span> <span class='op'>&gt;</span> <span class='op'>-</span><span class='number'>0.0048218813</span> <span class='op'>&amp;&amp;</span> <span class='ident'>k</span> <span class='op'>&lt;</span> <span class='op'>-</span><span class='number'>0.0048218811</span>);
-<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>h</span> <span class='op'>&gt;</span> <span class='number'>0.0575514202</span> <span class='op'>&amp;&amp;</span> <span class='ident'>h</span> <span class='op'>&lt;</span> <span class='number'>0.0575514204</span>);
-<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>q</span> <span class='op'>&gt;</span> <span class='op'>-</span><span class='number'>0.0090348990</span> <span class='op'>&amp;&amp;</span> <span class='ident'>q</span> <span class='op'>&lt;</span> <span class='op'>-</span><span class='number'>0.0090348988</span>);
-<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>p</span> <span class='op'>&gt;</span> <span class='number'>0.01965756</span> <span class='op'>&amp;&amp;</span> <span class='ident'>p</span> <span class='op'>&lt;</span> <span class='number'>0.01965832</span>);</pre>
-</div></section>
-    <section id='search' class="content hidden"></section>
+<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">vsop87_elts</span>.<span class="ident">a</span> <span class="op">&gt;</span> <span class="number">9.5727100002</span> <span class="op">&amp;&amp;</span> <span class="ident">vsop87_elts</span>.<span class="ident">a</span> <span class="op">&lt;</span> <span class="number">9.5727100004</span>);
+<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">vsop87_elts</span>.<span class="ident">l</span> <span class="op">&gt;</span> <span class="number">3.5107821038</span> <span class="op">&amp;&amp;</span> <span class="ident">vsop87_elts</span>.<span class="ident">l</span> <span class="op">&lt;</span> <span class="number">3.5107821040</span>);
+<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">vsop87_elts</span>.<span class="ident">k</span> <span class="op">&gt;</span> <span class="op">-</span><span class="number">0.0048218813</span> <span class="op">&amp;&amp;</span> <span class="ident">vsop87_elts</span>.<span class="ident">k</span> <span class="op">&lt;</span> <span class="op">-</span><span class="number">0.0048218811</span>);
+<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">vsop87_elts</span>.<span class="ident">h</span> <span class="op">&gt;</span> <span class="number">0.0575514202</span> <span class="op">&amp;&amp;</span> <span class="ident">vsop87_elts</span>.<span class="ident">h</span> <span class="op">&lt;</span> <span class="number">0.0575514204</span>);
+<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">vsop87_elts</span>.<span class="ident">q</span> <span class="op">&gt;</span> <span class="op">-</span><span class="number">0.0090348990</span> <span class="op">&amp;&amp;</span> <span class="ident">vsop87_elts</span>.<span class="ident">q</span> <span class="op">&lt;</span> <span class="op">-</span><span class="number">0.0090348988</span>);
+<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">vsop87_elts</span>.<span class="ident">p</span> <span class="op">&gt;</span> <span class="number">0.01965756</span> <span class="op">&amp;&amp;</span> <span class="ident">vsop87_elts</span>.<span class="ident">p</span> <span class="op">&lt;</span> <span class="number">0.01965832</span>);</pre>
+<p>It can then be converted into keplerian elements:</p>
 
-    <section class="footer"></section>
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">vsop87</span>::{<span class="ident">KeplerianElements</span>, <span class="ident">VSOP87Elements</span>};
 
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt>?</dt>
-                    <dd>Show this help dialog</dd>
-                    <dt>S</dt>
-                    <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
-                    <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
-                    <dd>Move down in search results</dd>
-                    <dt>&#9166;</dt>
-                    <dd>Go to active search result</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../";
-        window.currentCrate = "vsop87";
-        window.playgroundUrl = "";
-    </script>
-    <script src="../jquery.js"></script>
-    <script src="../main.js"></script>
-    
-    <script defer src="../search-index.js"></script>
-</body>
-</html>
+<span class="kw">let</span> <span class="ident">k_elements</span>: <span class="ident">KeplerianElements</span> <span class="op">=</span> <span class="ident">vsop87_elts</span>.<span class="ident">into</span>();
+<span class="kw">let</span> <span class="ident">convert_back</span> <span class="op">=</span> <span class="ident">VSOP87Elements</span>::<span class="ident">from</span>(<span class="ident">k_elements</span>);</pre>
+</div></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../";window.currentCrate = "vsop87";</script><script src="../aliases.js"></script><script src="../main.js"></script><script defer src="../search-index.js"></script></body></html>
